@@ -44,24 +44,22 @@ public class Main {
 //            }
 //        }
 
+//
+
         int[] number = {10, 75, 76, 47};
         for (int i = 0; i <= 3; i++){
-            if(number[i]%2 == 0){
-                if(number[i] > 50){
-                    System.out.println(number[i] + " adalah angka genap yang lebih besar dari 50");
-                }
-                else{
+            if(number[i]%2 == 0 && number[i] > 50){
+                System.out.println(number[i] + " adalah angka genap yang lebih besar dari 50");
+            }
+            else if (number[i]%2 == 0 && number[i] < 50){
                     System.out.println(number[i] + " adalah angka genap yang lebih kecil dari 50");
                 }
-            }
-            else{
-                if(number[i] > 50){
+            else if (number[i]%2 == 1 && number[i] > 50){
                     System.out.println(number[i] + " adalah angka ganjil yang lebih besar dari 50");
                 }
-                else{
+            else{
                     System.out.println(number[i] + " adalah angka ganjil yang lebih kecil dari 50");
                 }
             }
         }
     }
-}
