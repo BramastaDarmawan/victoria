@@ -110,14 +110,25 @@ public class Main {
 //            System.out.println(i + keterangan + ket);
 //        }
 
-        for (int i = 1; i <= 50; i++){
-            if (i%2 == 0){
+//        for (int i = 1; i <= 50; i++){
+//            if (i%2 == 0){
+//                System.out.println("Genap");
+//            }
+//            else{
+//                System.out.println(i);
+//            }
+//
+//        }
+
+        int i = 0;
+        while (i <= 49){
+            i++;
+            if(i%2 == 0){
                 System.out.println("Genap");
             }
-            else{
+            else {
                 System.out.println(i);
             }
-
         }
     }
 }
