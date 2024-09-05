@@ -81,16 +81,43 @@ public class Main {
 //          day++;
 //      }
 
-        int[] number = {10, 75, 76, 47};
-        String keterangan;
-        for(int i : number){
-            int hasil_mod;
-            hasil_mod = i%2;
-            switch (hasil_mod){
-                case 0: keterangan = " adalah angka genap"; break;
-                default: keterangan = " adalah angka ganjil"; break;
+//        int[] number = {10, 75, 76, 47};
+//        String keterangan;
+//        for(int i : number){
+//            int hasil_mod;
+//            hasil_mod = i%2;
+//            switch (hasil_mod){
+//                case 0: keterangan = " adalah angka genap"; break;
+//                default: keterangan = " adalah angka ganjil"; break;
+//            }
+//            System.out.println(i + keterangan);
+//        }
+
+//        int[] number = {10, 75, 76, 47};
+//        String keterangan, ket;
+//        for(int i : number){
+//            int hasil_mod;
+//            int kurang_lebih = (i>50) ? 1:0;
+//            hasil_mod = i%2;
+//            switch (hasil_mod){
+//                case 0: keterangan = " adalah angka genap"; break;
+//                default: keterangan = " adalah angka ganjil"; break;
+//            }
+//            switch (kurang_lebih){
+//                case 0: ket = " dan angka kurang dari 50"; break;
+//                default: ket = " dan angka lebih dari 50"; break;
+//            }
+//            System.out.println(i + keterangan + ket);
+//        }
+
+        for (int i = 1; i <= 50; i++){
+            if (i%2 == 0){
+                System.out.println(i + " adalah genap");
             }
-            System.out.println(i + keterangan);
+            else{
+                System.out.println(i + " adalah ganjil");
+            }
+
         }
     }
 }
