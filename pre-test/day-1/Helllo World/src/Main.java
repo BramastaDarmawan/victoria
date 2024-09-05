@@ -120,15 +120,22 @@ public class Main {
 //
 //        }
 
-        int i = 0;
-        while (i <= 49){
-            i++;
-            if(i%2 == 0){
-                System.out.println("Genap");
+//        int i = 0;
+//        while (i <= 49){
+//            i++;
+//            if(i%2 == 0){
+//                System.out.println("Genap");
+//            }
+//            else {
+//                System.out.println(i);
+//            }
+//        }
+
+        for(int i = 1; i <= 50; i++){
+            if(i%15 == 0){
+                break;
             }
-            else {
-                System.out.println(i);
-            }
+            System.out.print(i + " ");
         }
     }
 }
