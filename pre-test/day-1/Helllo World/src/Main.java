@@ -63,22 +63,34 @@ public class Main {
 //                }
 //            }
 
-      int day = 1;
-      String dayName;
-      while (day <= 5){
-          switch (day){
-              case 1 : dayName = "Sunday"; break;
-              case 2 : dayName = "Monday"; break;
-              case 3 : dayName = "Tuesday"; break;
-              default: dayName = "Invalid Day"; break;
-          }
-          if( day <=3){
-              System.out.println("Today is " + dayName);
-          }
-          else{
-              System.out.println(dayName);
-          }
-          day++;
-      }
+//      int day = 1;
+//      String dayName;
+//      while (day <= 5){
+//          switch (day){
+//              case 1 : dayName = "Sunday"; break;
+//              case 2 : dayName = "Monday"; break;
+//              case 3 : dayName = "Tuesday"; break;
+//              default: dayName = "Invalid Day"; break;
+//          }
+//          if( day <=3){
+//              System.out.println("Today is " + dayName);
+//          }
+//          else{
+//              System.out.println(dayName);
+//          }
+//          day++;
+//      }
+
+        int[] number = {10, 75, 76, 47};
+        String keterangan;
+        for(int i : number){
+            int hasil_mod;
+            hasil_mod = i%2;
+            switch (hasil_mod){
+                case 0: keterangan = " adalah angka genap"; break;
+                default: keterangan = " adalah angka ganjil"; break;
+            }
+            System.out.println(i + keterangan);
+        }
     }
 }
