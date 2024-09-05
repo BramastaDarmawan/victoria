@@ -112,10 +112,10 @@ public class Main {
 
         for (int i = 1; i <= 50; i++){
             if (i%2 == 0){
-                System.out.println(i + " adalah genap");
+                System.out.println("Genap");
             }
             else{
-                System.out.println(i + " adalah ganjil");
+                System.out.println(i);
             }
 
         }
