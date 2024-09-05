@@ -76,7 +76,7 @@ public class Main {
               System.out.println("Today is " + dayName);
           }
           else{
-              System.out.println((dayName));
+              System.out.println(dayName);
           }
           day++;
       }
