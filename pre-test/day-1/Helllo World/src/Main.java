@@ -138,11 +138,19 @@ public class Main {
 //            System.out.print(i + " ");
 //        }
 
-        for(int i = 1; i <= 30; i++){
-            if(i%2 == 0){
-                continue;
-            }
-            System.out.print(i + " ");
+//        for(int i = 1; i <= 30; i++){
+//            if(i%2 == 0){
+//                continue;
+//            }
+//            System.out.print(i + " ");
+//        }
+
+        long awal = 1;
+        Scanner input = new Scanner(System.in);
+        long number = input.nextLong();
+        for(int i = 2; i <= number; i++){
+            awal *= i;
         }
+        System.out.println(awal);
     }
 }
