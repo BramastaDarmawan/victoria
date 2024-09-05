@@ -1,0 +1,35 @@
+C
+C
+A
+B
+C
+C
+A
+B
+A
+D
+A
+A
+A
+A
+A
+16. (tidak tau)
+17. == digunakan untuk membandingkan 2 nilai yang bertipe int float double, sedangkan .equals() digunakan untuk membandingkan 2 nilai yang bertipe string
+18. public class Main {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            if (i%2 == 0){
+                System.out.println( i + " adalah bilangan Genap");
+            }
+            else {
+                System.out.println(i + " adalah bilangan ganjil");
+            }
+        }
+    }
+}
+
+19. pengulangan do - while adalah pengulangan dimana program akan dijalankan sekali kemudian akan di cek kondisinya, jika kondisinya memnuhi maka akan dilakukan pengulangan kembali
+pengulangan while adalah pengulangan dimana akan dilakukan pengecekan kondisi terlebih dahulu, seblum dijalankan programnya
+pengulangan for adalah pengulangan yang melakukan inisiasi variabel yang digunakan untuk pengulangan, dan dilakukan pengecekan dan baru dijalankan programnya
+
+20. ( tidak tau )
