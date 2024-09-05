@@ -1,4 +1,5 @@
 import java.lang.Math.*;
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         //System.out.println("Hello World!");
@@ -46,20 +47,38 @@ public class Main {
 
 //
 
-        int[] number = {10, 75, 76, 47};
-        for (int i = 0; i <= 3; i++){
-            if(number[i]%2 == 0 && number[i] > 50){
-                System.out.println(number[i] + " adalah angka genap yang lebih besar dari 50");
-            }
-            else if (number[i]%2 == 0 && number[i] < 50){
-                    System.out.println(number[i] + " adalah angka genap yang lebih kecil dari 50");
-                }
-            else if (number[i]%2 == 1 && number[i] > 50){
-                    System.out.println(number[i] + " adalah angka ganjil yang lebih besar dari 50");
-                }
-            else{
-                    System.out.println(number[i] + " adalah angka ganjil yang lebih kecil dari 50");
-                }
-            }
-        }
+//        int[] number = {10, 75, 76, 47};
+//        for (int i = 0; i <= 3; i++){
+//            if(number[i]%2 == 0 && number[i] > 50){
+//                System.out.println(number[i] + " adalah angka genap yang lebih besar dari 50");
+//            }
+//            else if (number[i]%2 == 0 && number[i] < 50){
+//                    System.out.println(number[i] + " adalah angka genap yang lebih kecil dari 50");
+//                }
+//            else if (number[i]%2 == 1 && number[i] > 50){
+//                    System.out.println(number[i] + " adalah angka ganjil yang lebih besar dari 50");
+//                }
+//            else{
+//                    System.out.println(number[i] + " adalah angka ganjil yang lebih kecil dari 50");
+//                }
+//            }
+
+      int day = 1;
+      String dayName;
+      while (day <= 5){
+          switch (day){
+              case 1 : dayName = "Sunday"; break;
+              case 2 : dayName = "Monday"; break;
+              case 3 : dayName = "Tuesday"; break;
+              default: dayName = "Invalid Day"; break;
+          }
+          if( day <=3){
+              System.out.println("Today is " + dayName);
+          }
+          else{
+              System.out.println((dayName));
+          }
+          day++;
+      }
     }
+}
