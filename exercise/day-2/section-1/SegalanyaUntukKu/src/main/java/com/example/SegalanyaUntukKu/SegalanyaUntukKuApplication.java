@@ -1,24 +1,25 @@
-package com.example.first_application;
+package com.example.SegalanyaUntukKu;
 
-import com.example.first_application.Request.CreateUserRequest;
-import com.example.first_application.Request.UpdateUserRequest;
-import com.example.first_application.Response.CreateUserResponse;
+import com.example.SegalanyaUntukKu.Request.CreateUserRequest;
+import com.example.SegalanyaUntukKu.Request.UpdateUserRequest;
+import com.example.SegalanyaUntukKu.Response.CreateUserResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
-@RestController
 @SpringBootApplication
-public class FirstApplication {
+public class SegalanyaUntukKuApplication {
+
 	private List<CreateUserResponse> users = new ArrayList<>();
 	private List<CreateUserResponse> data = new ArrayList<>();
 
-    public static void main(String[] args) {
-		SpringApplication.run(FirstApplication.class, args);
+	public static void main(String[] args) {
+		SpringApplication.run(SegalanyaUntukKuApplication.class, args);
 	}
 
 	@GetMapping("/users")
@@ -29,7 +30,7 @@ public class FirstApplication {
 	@GetMapping("/users/{id}")
 	public ResponseEntity<List<CreateUserResponse>> getUserById()
 	{
-        return new ResponseEntity<>(users, HttpStatus.OK);
+		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 
 	@PostMapping("/users")
@@ -51,19 +52,23 @@ public class FirstApplication {
 		users.add(CreateUserResponse.builder().id(5L).name("Darmawan").
 				status("Bekerja").deskripsi("Menara FIF").
 				build());
-		users.add(CreateUserResponse.builder().id(request.getId()).name(request.getName()).build());
+		users.add(CreateUserResponse.builder().id((long) users.size()+1).
+				name(request.getName()).status(request.getStatus()).
+				deskripsi(request.getDeskripsi()).build());
 
 		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 
-	@PostMapping("/users")
-	public ResponseEntity<List<CreateUserResponse>> updateUser(
-			@RequestBody CreateUserRequest request
-	){
-		users.add(CreateUserResponse.builder().id((long) users.size()+1).name(request.getName()).build());
-
-		return new ResponseEntity<>(users, HttpStatus.OK);
-	}
+//	@PostMapping("/users")
+//	public ResponseEntity<List<CreateUserResponse>> updateUser(
+//			@RequestBody CreateUserRequest request
+//	){
+//		users.add(CreateUserResponse.builder().id((long) users.size()+1).
+//				name(request.getName()).status(request.getStatus()).
+//				deskripsi(request.getDeskripsi()).build());
+//
+//		return new ResponseEntity<>(users, HttpStatus.OK);
+//	}
 
 	@PostMapping("/users/{id}")
 	public ResponseEntity<List<CreateUserResponse>> updateUser(
@@ -96,3 +101,4 @@ public class FirstApplication {
 		}return new  ResponseEntity<>(data,HttpStatus.OK);
 	}
 }
+

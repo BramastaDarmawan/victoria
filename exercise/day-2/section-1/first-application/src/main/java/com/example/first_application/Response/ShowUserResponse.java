@@ -1,4 +1,4 @@
-package com.example.first_application.Request;
+package com.example.first_application.Response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Builder
 @Setter
 @Getter
-public class CreateUserRequest {
+public class ShowUserResponse {
     @JsonProperty("id")
     private Long id;
 

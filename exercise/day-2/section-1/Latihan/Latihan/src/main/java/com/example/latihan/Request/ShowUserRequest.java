@@ -8,7 +8,7 @@ import lombok.Setter;
 @Builder
 @Setter
 @Getter
-public class CreateUserRequest {
+public class ShowUserRequest {
     @JsonProperty("id")
     private Long id;
 

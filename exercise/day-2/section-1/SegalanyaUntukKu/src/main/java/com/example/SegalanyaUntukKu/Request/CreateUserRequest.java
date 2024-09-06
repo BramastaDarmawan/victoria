@@ -1,4 +1,4 @@
-package com.example.first_application.Request;
+package com.example.SegalanyaUntukKu.Request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
