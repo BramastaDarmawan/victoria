@@ -1,15 +1,14 @@
 package com.example.first_application;
 
+import com.example.first_application.Request.CreateUserRequest;
+import com.example.first_application.Response.CreateUserResponse;
 import com.example.first_application.Response.GetAssetResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import lombok.Builder;
 
 import java.awt.*;
@@ -80,32 +79,45 @@ public class FirstApplication {
 //	}
 
 
-	@GetMapping("/assets")
-	public List<GetAssetResponse> getAssetById(
-			@RequestParam(name = "page", defaultValue =  "1")int page,
-			@RequestParam(name = "size", defaultValue =  "1")int size
-	) {
-		List<GetAssetResponse> asset = new ArrayList<GetAssetResponse>();
-		asset.add(GetAssetResponse.builder().id(1L).fullname("John Doe").build());
-		asset.add(GetAssetResponse.builder().id(2L).fullname("John Doe 2").build());
-		asset.add(GetAssetResponse.builder().id(3L).fullname("John Doe 3").build());
-		asset.add(GetAssetResponse.builder().id(4L).fullname("John Doe 4").build());
-		asset.add(GetAssetResponse.builder().id(5L).fullname("John Doe 5").build());
-
-		int start = (page-1) * size;
-		int end = start + size;
-		List<GetAssetResponse> data = new ArrayList<GetAssetResponse>();
-
-		while(start < end){
-			data.add(asset.get(start));
-		}
-		return data;
+//	@GetMapping("/assets")
+//	public List<GetAssetResponse> getAssetById(
+//			@RequestParam(name = "page", defaultValue =  "1")int page,
+//			@RequestParam(name = "size", defaultValue =  "1")int size
+//	) {
+//		List<GetAssetResponse> asset = new ArrayList<GetAssetResponse>();
+//		asset.add(GetAssetResponse.builder().id(1L).fullname("John Doe").build());
+//		asset.add(GetAssetResponse.builder().id(2L).fullname("John Doe 2").build());
+//		asset.add(GetAssetResponse.builder().id(3L).fullname("John Doe 3").build());
+//		asset.add(GetAssetResponse.builder().id(4L).fullname("John Doe 4").build());
+//		asset.add(GetAssetResponse.builder().id(5L).fullname("John Doe 5").build());
+//
+//		int start = (page-1) * size;
+//		int end = start + size;
+//		List<GetAssetResponse> data = new ArrayList<GetAssetResponse>();
+//
+//		while(start < end){
+//			data.add(asset.get(start));
+//		}
+//		return data;
 //		if (end > asset.size()) {
 //			return null;
 //		}
 //		return asset.subList(start, end);
+//
+//
+//
+//	}
 
+	@PostMapping("/users")
+	public ResponseEntity<List<CreateUserResponse>> createUser(
+			@RequestBody CreateUserRequest request){
 
+		List<CreateUserResponse> list = new ArrayList<>();
 
+		list.add(CreateUserResponse.builder().id(1L).name("AB").build());
+		list.add(CreateUserResponse.builder().id(2L).name("DC").build());
+		list.add(CreateUserResponse.builder().id(request.getId()).name(request.getName()).build());
+
+		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 }
