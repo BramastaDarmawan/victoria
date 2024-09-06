@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.Builder;
 
@@ -47,21 +48,34 @@ public class FirstApplication {
 //		return list;
 //	}
 
-	@GetMapping("/assets/{id}")
-	public GetAssetResponse getAssetById(
-			@PathVariable Long id
-	) {
-		ArrayList<GetAssetResponse> asset = new ArrayList<>();
-		asset.add(GetAssetResponse.builder().id(1L).fullname("John Doe").build());
-		asset.add(GetAssetResponse.builder().id(2L).fullname("John Doe 2").build());
-		asset.add(GetAssetResponse.builder().id(3L).fullname("John Doe 3").build());
-		asset.add(GetAssetResponse.builder().id(4L).fullname("John Doe 4").build());
-		asset.add(GetAssetResponse.builder().id(5L).fullname("John Doe 5").build());
+//	@GetMapping("/assets/{id}")
+//	public GetAssetResponse getAssetById(
+//			@PathVariable Long id
+//	) {
+//		ArrayList<GetAssetResponse> asset = new ArrayList<>();
+//		asset.add(GetAssetResponse.builder().id(1L).fullname("John Doe").build());
+//		asset.add(GetAssetResponse.builder().id(2L).fullname("John Doe 2").build());
+//		asset.add(GetAssetResponse.builder().id(3L).fullname("John Doe 3").build());
+//		asset.add(GetAssetResponse.builder().id(4L).fullname("John Doe 4").build());
+//		asset.add(GetAssetResponse.builder().id(5L).fullname("John Doe 5").build());
+//
+//		ArrayList<GetAssetResponse> data = new ArrayList<>();
+//
+//		for (GetAssetResponse ambil : asset) {
+//			if (ambil.getId() >= id) {
+//				 return data.;
+//			}
+//			else{
+//				continue;
+//			}
+//		} return null;
+//	}
 
-		for(GetAssetResponse ambil : asset){
-			if(ambil.getId() == id){
-				return ambil;
-			}
-		}return null;
+	@GetMapping("/calculator/add")
+	public String getAdd(
+			@RequestParam(name = "panjang") int panjang,
+			@RequestParam(name = "lebar") int lebar
+	){
+		return String.valueOf(panjang + lebar);
 	}
 }
