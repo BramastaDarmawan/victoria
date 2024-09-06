@@ -1,7 +1,9 @@
 package com.example.first_application;
 
 import com.example.first_application.Request.CreateUserRequest;
+import com.example.first_application.Request.EmployeeUserRequest;
 import com.example.first_application.Response.CreateUserResponse;
+import com.example.first_application.Response.EmployeeUserResponse;
 import com.example.first_application.Response.GetAssetResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -49,10 +51,10 @@ public class FirstApplication {
 //	}
 
 //	@GetMapping("/assets/{id}")
-//	public GetAssetResponse getAssetById(
+//	public List<GetAssetResponse> getAssetById(
 //			@PathVariable Long id
 //	) {
-//		ArrayList<GetAssetResponse> asset = new ArrayList<>();
+//		List<GetAssetResponse> asset = new ArrayList<>();
 //		asset.add(GetAssetResponse.builder().id(1L).fullname("John Doe").build());
 //		asset.add(GetAssetResponse.builder().id(2L).fullname("John Doe 2").build());
 //		asset.add(GetAssetResponse.builder().id(3L).fullname("John Doe 3").build());
@@ -67,7 +69,7 @@ public class FirstApplication {
 //			}
 //			data.add(ambil);
 //		}
-//		return data.get(id.intValue());
+//		return data;
 //	}
 
 //	@GetMapping("/calculator/add")
@@ -108,16 +110,41 @@ public class FirstApplication {
 //
 //	}
 
-	@PostMapping("/users")
-	public ResponseEntity<List<CreateUserResponse>> createUser(
-			@RequestBody CreateUserRequest request){
+//	@PostMapping("/users")
+//	public ResponseEntity<List<CreateUserResponse>> createUser(
+//			@RequestBody CreateUserRequest request){
+//
+//		List<CreateUserResponse> list = new ArrayList<>();
+//
+//		list.add(CreateUserResponse.builder().id(1L).name("AB").build());
+//		list.add(CreateUserResponse.builder().id(2L).name("DC").build());
+//		list.add(CreateUserResponse.builder().id(request.getId()).name(request.getName()).build());
+//
+//		return new ResponseEntity<>(list, HttpStatus.OK);
+//	}
 
-		List<CreateUserResponse> list = new ArrayList<>();
+	@PostMapping("/employees")
+	public ResponseEntity<List<EmployeeUserResponse>> createEmployee(
+			@RequestBody EmployeeUserRequest request){
 
-		list.add(CreateUserResponse.builder().id(1L).name("AB").build());
-		list.add(CreateUserResponse.builder().id(2L).name("DC").build());
-		list.add(CreateUserResponse.builder().id(request.getId()).name(request.getName()).build());
+		List<EmployeeUserResponse> list = new ArrayList<>();
 
-		return new ResponseEntity<>(list, HttpStatus.OK);
+		list.add(EmployeeUserResponse.builder().name("Bram").age(23).phone("0811111").build());
+		list.add(EmployeeUserResponse.builder().id(2).name("Bram").age(23).phone("0811111").build());
+		list.add(EmployeeUserResponse.builder().id(3).age(23).phone("0811111").build());
+		list.add(EmployeeUserResponse.builder().id(4).name("Bram").age(23).phone("0811111").build());
+		list.add(EmployeeUserResponse.builder().id(5).name("Bram").phone("0811111").build());
+		list.add(EmployeeUserResponse.builder().id(6).name("Bram").age(23).build());
+
+		list.add(EmployeeUserResponse.builder().id(request.getId()).name(request.getName()).age(request.getAge()).phone(request.getPhone()).build());
+
+		List<EmployeeUserResponse> data = new ArrayList<>();
+		for (EmployeeUserResponse pekerja : list){
+			if(pekerja.getId() == 0){
+				continue;
+			}
+			data.add(pekerja);
+		}
+		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 }
