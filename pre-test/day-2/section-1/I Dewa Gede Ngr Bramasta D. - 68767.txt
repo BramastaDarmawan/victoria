@@ -1,0 +1,55 @@
+Pilihan Ganda :
+1. B
+2. B
+3. B
+4. B
+5. C
+6. B
+7. B
+8. B
+9. A
+10. B
+
+True/False :
+1. False
+2. False
+3. True
+4. False
+5. True
+
+Essay :
+1. a. Statless : setiap dari request yang masuk dari client yang akan diikirimkan ke server, haruslah memuat semua informasi lengkap yang diminta sehingga server bisa memenuhi permintaan tersebut
+    b. Clint - Server Architecture : arsitektur dari client dan server harusnya terpisah satu sama lain, yang kedua client dan server ini dapat dihubungkan dengan request dan response. Jadi ketika ada perubahan di sisi client, servernya tidak akan berdampak
+    c. Uniform Interface : keseragaman sumber daya yang digunakan untuk mendukung operasi yang berjalan di setiap fungsi web
+    d. Arsitektur berlapis : lapisan bekerja secara independen dan hanya saling berinteraksi dengan lapisan yang terhubung secara langsung dengan lapisan tersebut
+
+2. a. Get digunakan untuk mengambil dapat
+    b. Post digunakan untuk membuat data baru
+    c. Put digunakan untuk mengupdate data yang sudah ada
+    d. Delete digunakan untuk menghapus data yang sudah tidak diperlukan
+
+3. Spring Boot adalah framework alternatif dari Spring MVC, Spring Boot menawarkan kongfigurasi otomatis sehingga developer hanya perlu fokus untuk mengembangkan aplikasi atau website, dibandingkan harus repot repot melakukan konfigurasi yang memperlama waktu kerja. Disamping itu juga Spring Boot juga menyediakan server web yang terintegrasi, jadi pengembangan tidak perlu server dari external. Sehingga pengembangan bisa lebih cepat dan dipermudah, dan developer bisa fokus sepenuhnya dalam penulisan logika
+
+4. @RequestMapping, merupakan sebuah anotasi yang dapat digunakan untuk melakukan pemetaan permintaan yang masuk sebelum dikirim ke kontroler. Anotasi ini memiliki banyak variable dan beragam yang kemudian akan dicocokan oleh URL HTTP method , parameter permintaan , dan tipe media untuk kemudian setelah mendapat yang cocok kemudian kontroler akan mengambil data yang sesuai dengan permintaan
+
+5. Kode - kode tersebut sangat penting karena melalui kode tersebut pengguna dapat mengetahui status dari permintaan mereka, apakah berhasil, tidak ditemukan, atau error, contohnya kode 404 yang merupakan kode error yang menunjukan bahwa permintaan user tidak dapat ditemukan di server
+
+6. Tidak tahu
+
+7. IoC mempermudah developer untuk menghubungkan database kedalam kodingan, sehingga dapat menghemat waktu developer dalam proses pengembangan
+
+8. Request dapat berfungsi untuk menerima permintaan dari user, sedangkan response digunakn untuk mengirim respons berdasarkan permintaan user
+
+9. Tidak tahu
+
+10. Tidak tahu
+
+11. Tidak tahu
+
+12. Tidak tahu
+
+13. Tidak tahu
+
+14. Tidak tahu
+
+15. Tidak tahu
