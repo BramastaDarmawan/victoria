@@ -2,6 +2,7 @@ package com.example.first_application;
 
 import com.example.first_application.Request.CreateUserRequest;
 import com.example.first_application.Request.EmployeeUserRequest;
+import com.example.first_application.Request.UpdateUserRequest;
 import com.example.first_application.Response.CreateUserResponse;
 import com.example.first_application.Response.EmployeeUserResponse;
 import com.example.first_application.Response.GetAssetResponse;
@@ -20,7 +21,7 @@ import java.util.List;
 @RestController
 @SpringBootApplication
 public class FirstApplication {
-
+	private List<CreateUserResponse> users = new ArrayList<>();
 	public static void main(String[] args) {
 		SpringApplication.run(FirstApplication.class, args);
 	}
@@ -123,28 +124,50 @@ public class FirstApplication {
 //		return new ResponseEntity<>(list, HttpStatus.OK);
 //	}
 
-	@PostMapping("/employees")
-	public ResponseEntity<List<EmployeeUserResponse>> createEmployee(
-			@RequestBody EmployeeUserRequest request){
+//	@PostMapping("/employees")
+//	public ResponseEntity<List<EmployeeUserResponse>> createEmployee(
+//			@RequestBody EmployeeUserRequest request){
+//
+//		List<EmployeeUserResponse> list = new ArrayList<>();
+//
+//		list.add(EmployeeUserResponse.builder().name("Bram").age(23).phone("0811111").build());
+//		list.add(EmployeeUserResponse.builder().id(2).name("Bram").age(23).phone("0811111").build());
+//		list.add(EmployeeUserResponse.builder().id(3).age(23).phone("0811111").build());
+//		list.add(EmployeeUserResponse.builder().id(4).name("Bram").age(23).phone("0811111").build());
+//		list.add(EmployeeUserResponse.builder().id(5).name("Bram").phone("0811111").build());
+//		list.add(EmployeeUserResponse.builder().id(6).name("Bram").age(23).build());
+//
+//		list.add(EmployeeUserResponse.builder().id(request.getId()).name(request.getName()).age(request.getAge()).phone(request.getPhone()).build());
+//
+//		List<EmployeeUserResponse> data = new ArrayList<>();
+//		for (EmployeeUserResponse pekerja : list){
+//			if(pekerja.getId() == 0){
+//				continue;
+//			}
+//			data.add(pekerja);
+//		}
+//		return new ResponseEntity<>(data, HttpStatus.OK);
+//	}
 
-		List<EmployeeUserResponse> list = new ArrayList<>();
+	@PostMapping("/users")
+	public ResponseEntity<List<CreateUserResponse>> createUser(
+			@RequestBody CreateUserRequest request
+	){
+		users.add(CreateUserResponse.builder().id((long) users.size()+1).name(request.getName()).build());
 
-		list.add(EmployeeUserResponse.builder().name("Bram").age(23).phone("0811111").build());
-		list.add(EmployeeUserResponse.builder().id(2).name("Bram").age(23).phone("0811111").build());
-		list.add(EmployeeUserResponse.builder().id(3).age(23).phone("0811111").build());
-		list.add(EmployeeUserResponse.builder().id(4).name("Bram").age(23).phone("0811111").build());
-		list.add(EmployeeUserResponse.builder().id(5).name("Bram").phone("0811111").build());
-		list.add(EmployeeUserResponse.builder().id(6).name("Bram").age(23).build());
+		return new ResponseEntity<>(users, HttpStatus.OK);
+	}
 
-		list.add(EmployeeUserResponse.builder().id(request.getId()).name(request.getName()).age(request.getAge()).phone(request.getPhone()).build());
-
-		List<EmployeeUserResponse> data = new ArrayList<>();
-		for (EmployeeUserResponse pekerja : list){
-			if(pekerja.getId() == 0){
-				continue;
+	@PostMapping("/users/{id}")
+	public ResponseEntity<List<CreateUserResponse>> updateUser(
+			@RequestBody UpdateUserRequest request,
+			@PathVariable("id") Long id
+	){
+		for(CreateUserResponse user : users){
+			if(user.getId()==id){
+				user.setName(request.getName());
 			}
-			data.add(pekerja);
 		}
-		return new ResponseEntity<>(data, HttpStatus.OK);
+		return new ResponseEntity<>(users,HttpStatus.OK);
 	}
 }
