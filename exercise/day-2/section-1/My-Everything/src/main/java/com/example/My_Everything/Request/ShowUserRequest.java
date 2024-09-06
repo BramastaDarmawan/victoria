@@ -1,4 +1,4 @@
-package com.example.MyEverithing.Request;
+package com.example.My_Everything.Request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;

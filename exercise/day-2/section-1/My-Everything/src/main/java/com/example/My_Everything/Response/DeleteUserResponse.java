@@ -1,4 +1,4 @@
-package com.example.MyEverithing.Response;
+package com.example.My_Everything.Response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Builder
 @Setter
 @Getter
-public class ShowUserResponse {
+public class DeleteUserResponse {
     @JsonProperty("id")
     private Long id;
 
