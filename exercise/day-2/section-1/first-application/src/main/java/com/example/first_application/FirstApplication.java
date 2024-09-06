@@ -137,37 +137,51 @@ public class FirstApplication {
 //		list.add(EmployeeUserResponse.builder().id(5).name("Bram").phone("0811111").build());
 //		list.add(EmployeeUserResponse.builder().id(6).name("Bram").age(23).build());
 //
-//		list.add(EmployeeUserResponse.builder().id(request.getId()).name(request.getName()).age(request.getAge()).phone(request.getPhone()).build());
-//
 //		List<EmployeeUserResponse> data = new ArrayList<>();
 //		for (EmployeeUserResponse pekerja : list){
 //			if(pekerja.getId() == 0){
-//				continue;
+//				if (pekerja.getName().equalsIgnoreCase("null")){
+//					if (pekerja.getAge() == 0){
+//						if (pekerja.getPhone().equalsIgnoreCase("null")){
+//							continue;
+//						}
+//					}
+//				}
+//			}
+//			else {
+//				data.add(EmployeeUserResponse.builder().id(request.getId()).name(request.getName()).age(request.getAge()).phone(request.getPhone()).build());
 //			}
 //			data.add(pekerja);
 //		}
 //		return new ResponseEntity<>(data, HttpStatus.OK);
 //	}
 
-	@PostMapping("/users")
-	public ResponseEntity<List<CreateUserResponse>> createUser(
-			@RequestBody CreateUserRequest request
-	){
-		users.add(CreateUserResponse.builder().id((long) users.size()+1).name(request.getName()).build());
+//	@PostMapping("/users")
+//	public ResponseEntity<List<CreateUserResponse>> createUser(
+//			@RequestBody CreateUserRequest request
+//	){
+//		users.add(CreateUserResponse.builder().id((long) users.size()+1).name(request.getName()).build());
+//
+//		return new ResponseEntity<>(users, HttpStatus.OK);
+//	}
+//
+//	@PostMapping("/users/{id}")
+//	public ResponseEntity<List<CreateUserResponse>> updateUser(
+//			@RequestBody UpdateUserRequest request,
+//			@PathVariable("id") Long id
+//	){
+//		for(CreateUserResponse user : users){
+//			if(user.getId()==id){
+//				user.setName(request.getName());
+//			}
+//			if(user.getId()==id){
+//				user.setStatus(request.getStatus());
+//			}
+//			if(user.getId()==0){
+//				user.setDescription(request.getDescription());
+//			}
+//		}
+//		return new ResponseEntity<>(users,HttpStatus.OK);
+//	}
 
-		return new ResponseEntity<>(users, HttpStatus.OK);
-	}
-
-	@PostMapping("/users/{id}")
-	public ResponseEntity<List<CreateUserResponse>> updateUser(
-			@RequestBody UpdateUserRequest request,
-			@PathVariable("id") Long id
-	){
-		for(CreateUserResponse user : users){
-			if(user.getId()==id){
-				user.setName(request.getName());
-			}
-		}
-		return new ResponseEntity<>(users,HttpStatus.OK);
-	}
 }
