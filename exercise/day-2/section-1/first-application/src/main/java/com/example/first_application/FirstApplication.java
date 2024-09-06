@@ -50,8 +50,18 @@ public class FirstApplication {
 	@GetMapping("/assets/{id}")
 	public GetAssetResponse getAssetById(
 			@PathVariable Long id
-	){
-		return GetAssetResponse.builder().id(id).fullname("Bram").build();
-	}
+	) {
+		ArrayList<GetAssetResponse> asset = new ArrayList<>();
+		asset.add(GetAssetResponse.builder().id(1L).fullname("John Doe").build());
+		asset.add(GetAssetResponse.builder().id(2L).fullname("John Doe 2").build());
+		asset.add(GetAssetResponse.builder().id(3L).fullname("John Doe 3").build());
+		asset.add(GetAssetResponse.builder().id(4L).fullname("John Doe 4").build());
+		asset.add(GetAssetResponse.builder().id(5L).fullname("John Doe 5").build());
 
+		for(GetAssetResponse ambil : asset){
+			if(ambil.getId() == id){
+				return ambil;
+			}
+		}return null;
+	}
 }
