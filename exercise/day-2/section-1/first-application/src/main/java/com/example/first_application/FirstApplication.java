@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.Builder;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
 
 @RestController
 @SpringBootApplication
@@ -62,20 +63,49 @@ public class FirstApplication {
 //		ArrayList<GetAssetResponse> data = new ArrayList<>();
 //
 //		for (GetAssetResponse ambil : asset) {
-//			if (ambil.getId() >= id) {
-//				 return data.;
-//			}
-//			else{
+//			if (ambil.getId() <= id) {
 //				continue;
 //			}
-//		} return null;
+//			data.add(ambil);
+//		}
+//		return data.get(id.intValue());
 //	}
 
-	@GetMapping("/calculator/add")
-	public String getAdd(
-			@RequestParam(name = "panjang") int panjang,
-			@RequestParam(name = "lebar") int lebar
-	){
-		return String.valueOf(panjang + lebar);
+//	@GetMapping("/calculator/add")
+//	public String getAdd(
+//			@RequestParam(name = "panjang") int panjang,
+//			@RequestParam(name = "lebar") int lebar
+//	){
+//		return String.valueOf(panjang + lebar);
+//	}
+
+
+	@GetMapping("/assets")
+	public List<GetAssetResponse> getAssetById(
+			@RequestParam(name = "page", defaultValue =  "1")int page,
+			@RequestParam(name = "size", defaultValue =  "1")int size
+	) {
+		List<GetAssetResponse> asset = new ArrayList<GetAssetResponse>();
+		asset.add(GetAssetResponse.builder().id(1L).fullname("John Doe").build());
+		asset.add(GetAssetResponse.builder().id(2L).fullname("John Doe 2").build());
+		asset.add(GetAssetResponse.builder().id(3L).fullname("John Doe 3").build());
+		asset.add(GetAssetResponse.builder().id(4L).fullname("John Doe 4").build());
+		asset.add(GetAssetResponse.builder().id(5L).fullname("John Doe 5").build());
+
+		int start = (page-1) * size;
+		int end = start + size;
+		List<GetAssetResponse> data = new ArrayList<GetAssetResponse>();
+
+		while(start < end){
+			data.add(asset.get(start));
+		}
+		return data;
+//		if (end > asset.size()) {
+//			return null;
+//		}
+//		return asset.subList(start, end);
+
+
+
 	}
 }
