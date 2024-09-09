@@ -57,8 +57,25 @@ JOIN borrowed_books
 GROUP BY books.title
 HAVING count_books_borrowed;
 
-4. Tidak tahu
+4. SELECT 
+    borrowers.name AS borrower_name, 
+    books.title AS book_title, 
+    DATEDIFF(borrowed_books.due_date, borrowed_books.borrowed_date) AS days_kept
+FROM orrowers
+JOIN borrowed_books ON borrowers.id = borrowed_books.borrower_id
+JOIN books ON borrowed_books.book_id = books.id
+ORDER BY days_kept DESC
+LIMIT 1;
+
 5. Tidak tahu
 6. Tidak tahu
 7. Tidak tahu
-8. Tidak tahu
+
+8. SELECT 
+    borrowers.name, 
+    COUNT(borrowed_books.book_id) AS books_borrowed_count
+FROM borrowers
+JOIN borrowed_books ON borrowers.id = borrowed_books borrower_id
+GROUP BY borrowers.name
+ORDER BY books_borrowed_count DESC
+LIMIT 3;
