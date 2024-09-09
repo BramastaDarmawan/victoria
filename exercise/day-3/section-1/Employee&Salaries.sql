@@ -96,14 +96,16 @@
 --join promotions p on e.id = p.employee_id
 --where new_salary > (salary * 1.2);
 
--- select concat(e.first_name, ' ' , e.last_name) as employee_name,
+-- select distinct concat(e.first_name, ' ' , e.last_name) as employee_name,
+-- 	e.hire_date,
 -- 	concat(e2.first_name, ' ', e2.last_name) as manager_name,
+-- 	e2.hire_date,
 -- 	d."name"
 -- from employees e 
 -- join departments d on e.department_id = d.id
 -- join employees e2 on d.manager_id = e2.id
 -- where date_part('year', e.hire_date) = date_part('year', e2.hire_date);
- 
+
 --select 	
 --		max(average_salary) as highest_avg_salary, 
 --		min(average_salary) as lowest_avg_salary
@@ -113,32 +115,23 @@
 --		join salaries s on e.id = s.employee_id 
 --		group by d."name") as dept;
 
-
---WITH DepartmentSalaries AS (
---    SELECT 
+--with DepartmentSalaries AS (
+--    select 
 --        d.name as departement_name,
---        AVG(s.salary) AS average_salary
---    FROM 
---        departments d
---    JOIN 
---        employees e ON d.id = e.department_id
---    JOIN 
---        salaries s ON e.id = s.employee_id
---    GROUP BY 
---        d.name
+--        avg(s.salary) AS average_salary
+--    from departments d
+--    join employees e ON d.id = e.department_id
+--    join salaries s ON e.id = s.employee_id
+--    group by d.name
 --)
---SELECT 
+--select 
 --    departement_name,
 --    average_salary
---FROM 
---    DepartmentSalaries
---WHERE 
---    average_salary = (SELECT MAX(average_salary) FROM DepartmentSalaries)
---UNION
---SELECT 
+--from DepartmentSalaries
+--where average_salary = (select max(average_salary) from DepartmentSalaries)
+--union
+--select 
 --    departement_name,
 --    average_salary
---FROM 
---    DepartmentSalaries
---WHERE 
---    average_salary = (SELECT MIN(average_salary) FROM DepartmentSalaries);
+--from DepartmentSalaries
+--where average_salary = (select min(average_salary) from DepartmentSalaries);
