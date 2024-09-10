@@ -4,12 +4,12 @@ DECLARE
     dept_count INT := 5;
 BEGIN 
     FOR i IN 1..1000 LOOP
-        INSERT INTO book (title, isbn, author_id, genre_id, published_date) 
+        INSERT INTO books (title, isbn, author_id, genre_id, published_date) 
         VALUES (
             i,
             'Title_' || i,  
             'ISBN-_' || i,
-            (CURRENT_DATE - (floor(random() * 365 * 5))::int)
+            (CURRENT_DATE - (floor(random() * 365 * 5)):int)
         );
         
         -- Insert salary for each employee
